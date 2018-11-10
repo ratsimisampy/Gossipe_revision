@@ -11,6 +11,7 @@
 
 </br>
 <% if user_signed_in? %>
+<%= link_to 'Create Gossip', new_potin_path, class: "btn btn-lg btn-primary"  %>
 <%= link_to 'Gossips', potin_index_path, class: "btn btn-lg btn-primary"  %>
 <%= link_to 'Log out', destroy_user_session_path, :method => 'delete' ,class: "btn btn-lg btn-primary" %>
 <% else %>

@@ -1,7 +1,7 @@
 class PotinController < ApplicationController
 
     def new
-      #  @potin = Potin.new
+        @potin = Potin.new
     end
 
 
@@ -17,13 +17,20 @@ class PotinController < ApplicationController
     def create
         @potin = Potin.new(potin_params)
         @potin.save
-        redirect_to @potin
+        puts "HOHOHOH!!!!"
+        p @potin.id
+        redirect_to potin_path(@potin.id)
+        
+    end
+
+    
+
+    def show
+        @potin = @potin.find(params[:id])
     end
 
     private
     def potin_params
         params.require(:potin).permit(:author, :content)
     end
-
-
 end
